@@ -78,5 +78,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/B-JCoder/carshine.git"
+  },
+  "bugs": {
+    "url": "https://github.com/B-JCoder/carshine/issues"
+  },
+  "homepage": "https://github.com/B-JCoder/carshine#readme",
   "description": ""
 }

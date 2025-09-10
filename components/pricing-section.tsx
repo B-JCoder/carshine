@@ -1,9 +1,8 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Check, Star, Zap } from "lucide-react"
+import { Check, Star, Zap, Car } from "lucide-react"
 import { useState } from "react"
-import { Car } from "lucide-react" // Declared the Car variable
 
 export function PricingSection() {
   const [hoveredPlan, setHoveredPlan] = useState<number | null>(null)
@@ -17,45 +16,82 @@ export function PricingSection() {
 
   const plans = [
     {
-      name: "Basic Clean",
-      price: "$89",
-      description: "Perfect for regular maintenance",
-      features: ["Exterior hand wash", "Interior vacuum", "Dashboard wipe down", "Window cleaning", "Tire cleaning"],
+      name: "Basic Wash & Shine",
+      price: "$60",
+      description: "Hand wash with shine finish",
+      features: ["Hand wash & dry", "Wheel & tire clean", "Windows in & out"],
       popular: false,
       icon: Car,
       color: "from-muted to-card",
     },
     {
-      name: "Premium Detail",
-      price: "$149",
-      description: "Our most popular service",
+      name: "Interior Clean",
+      price: "$100",
+      description: "Fresh & spotless inside",
       features: [
-        "Everything in Basic Clean",
-        "Deep interior cleaning",
-        "Leather conditioning",
-        "Exterior wax application",
-        "Engine bay cleaning",
-        "Air freshener treatment",
+        "Vacuum (carpets, mats, seats)",
+        "Wipe down surfaces",
+        "Interior windows",
+        "Trash removal",
       ],
-      popular: true,
+      popular: false,
+      icon: Zap,
+      color: "from-primary/10 to-secondary/10",
+    },
+    {
+      name: "Interior Deep Clean",
+      price: "$160",
+      description: "Thorough cleaning inside",
+      features: [
+        "Full vacuum & crevice cleaning",
+        "Steam clean / shampoo carpets & mats",
+        "Seat shampoo (cloth) or leather clean & condition",
+        "Dashboard, vents & console detailed",
+      ],
+      popular: false,
+      icon: Star,
+      color: "from-secondary/10 to-accent/10",
+    },
+    {
+      name: "Exterior Polish & Wax (Add-On)",
+      price: "$100",
+      description: "Protective shine add-on",
+      features: [
+        "Clay bar treatment",
+        "Machine polish",
+        "Wax sealant finish",
+      ],
+      popular: false,
+      icon: Car,
+      color: "from-muted/30 to-card/30",
+    },
+    {
+      name: "Full Detail Package",
+      price: "$200",
+      description: "Complete inside & outside",
+      features: [
+        "Complete interior deep clean",
+        "Exterior wash & dry",
+        "Tire shine & trim restoration",
+        "Windows crystal clear",
+      ],
+      popular: true, // Marked as "Most Popular"
       icon: Star,
       color: "from-primary/10 to-secondary/10",
     },
     {
-      name: "Ultimate Shine",
-      price: "$229",
-      description: "Complete transformation",
+      name: "Premium Package",
+      price: "$300",
+      description: "Best value & long-lasting protection",
       features: [
-        "Everything in Premium Detail",
-        "Paint correction",
-        "Ceramic coating application",
-        "Headlight restoration",
-        "Trunk deep clean",
-        "6-month protection guarantee",
+        "Full Detail Package",
+        "Exterior Polish & Wax add-on INCLUDED",
+        "Engine bay clean",
+        "Ceramic spray coating for lasting shine & protection",
       ],
       popular: false,
       icon: Zap,
-      color: "from-secondary/10 to-accent/10",
+      color: "from-secondary/20 to-accent/20",
     },
   ]
 
@@ -66,13 +102,12 @@ export function PricingSection() {
           <div className="animate-fade-in">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">Pricing Plans</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty leading-relaxed">
-              Choose the perfect detailing package for your vehicle. All services include mobile convenience at no extra
-              charge.
+              Choose the perfect detailing package for your vehicle. All services include mobile convenience at no extra charge.
             </p>
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {plans.map((plan, index) => (
             <div
               key={index}
@@ -80,8 +115,8 @@ export function PricingSection() {
                 plan.popular
                   ? "ring-2 ring-primary shadow-primary/20 scale-105"
                   : hoveredPlan === index
-                    ? "scale-105 shadow-2xl border-primary/50"
-                    : "border-border/50"
+                  ? "scale-105 shadow-2xl border-primary/50"
+                  : "border-border/50"
               }`}
               onMouseEnter={() => setHoveredPlan(index)}
               onMouseLeave={() => setHoveredPlan(null)}
